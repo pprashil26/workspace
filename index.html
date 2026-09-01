@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workspace</title>
   <meta name="description" content="Lightweight. Fast. Free forever. Capture tasks, events and notes on mobile or desktop. No account required." />
-  <link rel="canonical" href="https://pprashil26.github.io/workspace/" />
+  <link rel="canonical" href="https://pprashil26.github.io/fastgtd/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Workspace" />
   <meta property="og:title" content="Workspace" />
   <meta property="og:description" content="Workspace" />
-  <meta property="og:url" content="https://pprashil26.github.io/workspace/" />
-  <meta property="og:image" content="https://pprashil26.github.io/workspace/workspace-share.png" />
-  <meta property="og:image:secure_url" content="https://pprashil26.github.io/workspace/workspace-share.png" />
+  <meta property="og:url" content="https://pprashil26.github.io/fastgtd/" />
+  <meta property="og:image" content="https://pprashil26.github.io/fastgtd/fast-gtd-share.png" />
+  <meta property="og:image:secure_url" content="https://pprashil26.github.io/fastgtd/fast-gtd-share.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Workspace" />
   <meta name="twitter:description" content="Workspace" />
-  <meta name="twitter:image" content="https://pprashil26.github.io/workspace/workspace-share.png" />
+  <meta name="twitter:image" content="https://pprashil26.github.io/fastgtd/fast-gtd-share.png" />
   <meta name="twitter:image:alt" content="Workspace: Lightweight, fast and free forever for mobile and desktop" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="application-name" content="Workspace" />
@@ -4967,7 +4967,7 @@ select {
   .workspace-panel-host > .app > .events-strip,
   .workspace-panel-host > .app > .quote-block,
   .workspace-panel-host > .app > footer { display: none; }
-  #workspaceTodayTab { display: none !important; background: #fff; border-color: var(--line); color: var(--muted); box-shadow: none; }
+  #workspaceTodayTab { background: #fff; border-color: var(--line); color: var(--muted); box-shadow: none; }
   #workspaceTodayTab:hover,
   #workspaceTodayTab:focus-visible { background: var(--soft); border-color: #cfd6cf; color: var(--ink); }
   #workspaceTodayTab.active { background: #eef3ff; border-color: #b9c8e8; color: #3e5278; }
@@ -5067,408 +5067,9 @@ select {
     gap:9px;
   }
 }
-
-/* Workspace final theme and desktop surface */
-:root {
-  --bg: #EEF3EA;
-  --page: #ffffff;
-  --panel: #ffffff;
-  --ink: #30352f;
-  --muted: rgba(48,53,47,.58);
-  --line: #DCE5D6;
-  --soft: #DCE5D6;
-  --entry: #ffffff;
-  --entry-border: #DCE5D6;
-  --selected: #E8D998;
-  --today: #E8D998;
-  --pin: #75651f;
-  --shadow: 0 9px 24px rgba(48,53,47,.08);
-}
-body { background: var(--bg) !important; }
-.sidebar, .notes-sidebar, .app, .global-search-box, .global-results,
-.expanded-note, .move-note-panel, .help-panel, .mobile-home, .mobile-section-bar,
-.note-card, .task-row, .activity-row, .event-row, .month, .calendar-quarter,
-input, textarea, select { background-color: #ffffff; }
-.sidebar-head, .notes-head, header, .expanded-note-head, .move-note-head, .help-head,
-.quote-block, footer, .note-title-area, .note-tools-row, .link-preview,
-.global-results-head, .events-strip, .task-archive-head { background: #ffffff; }
-.workspace-tab, .task-context-btn, .task-tag-filter-chip, .task-date-filter-chip,
-.icon-btn, .plain-btn, .project-link-btn { box-shadow: none; }
-.workspace-tab, .task-context-btn { background:#ffffff !important; border-color:var(--line) !important; color:var(--muted) !important; }
-.workspace-tab:hover, .workspace-tab:focus-visible, .task-context-btn:hover, .task-context-btn:focus-visible { background:var(--soft) !important; color:var(--ink) !important; }
-.workspace-tab.active, .task-context-btn.active { background:#ffffff !important; border-color:var(--accent, #E8D998) !important; color:var(--ink) !important; box-shadow:inset 0 -2px 0 #E8D998 !important; }
-#workspaceTodayTab { display:none !important; }
-.task-row, .note-card, .event-row, .activity-row,
-.workspace-panel-host .task-row, .workspace-panel-host .activity-row { background:#ffffff !important; }
-.task-row.highlighted, .task-row.is-highlighted, .task-row.task-highlighted,
-.activity-row.highlighted, .event-row.highlighted, .note-card.is-pinned { background:#ffffff !important; border-color:#E8D998 !important; box-shadow:inset 3px 0 0 #E8D998 !important; }
-.task-context-btn { min-height:28px; }
-.task-date-filter-chip, .task-tag-filter-chip, .task-filter-label { color:rgba(48,53,47,.32) !important; background:transparent !important; }
-.task-date-filter-chip:hover, .task-tag-filter-chip:hover { color:rgba(48,53,47,.66) !important; }
-.task-date-filter-chip.active, .task-tag-filter-chip.active { color:var(--ink) !important; border-color:rgba(48,53,47,.42) !important; font-weight:750; }
-#newTaskBtn, #addNoteBtn, #mobileNotesAddBtn, #labelAddBtn, #addEventBtn, #eventsPanelAddBtn,
-.activity-add-btn, .event-save-btn, .task-save-btn, .planner-create-save, .voice-capture-save,
-.mobile-quick-note-btn, .mobile-quick-event-btn, .mobile-task-capture-btn, .mobile-activity-capture-btn {
-  background:#E8D998 !important; border-color:#E8D998 !important; color:var(--ink) !important;
-}
-.day-btn.has-events, .day-btn.today, .day-btn.selected, .event-today,
-textarea.event-timeblock, textarea.task-timeblock, textarea.activity-timeblock { background:#E8D998 !important; border-color:#E8D998 !important; color:var(--ink) !important; }
-textarea:focus, input:focus, select:focus { background:#ffffff; outline:2px solid #DCE5D6; }
-@media (min-width:760px) {
-  .global-search-wrap, .shell { width:min(210mm, calc(100vw - 24px)) !important; max-width:210mm !important; }
-  .notes-sidebar { min-height:calc(100vh - 20px); }
-  .shell > .app { display:none !important; }
-  .workspace-panel-host > .app { display:none !important; }
-  .workspace-panel-host > .app[hidden] { display:none !important; }
-  .workspace-footer { background:#ffffff; }
-  .workspace-panel-host > .sidebar .calendar-quarter { background:#ffffff; }
-  .workspace-panel-host > .sidebar .calendar-quarter .month { background:#ffffff; }
-}
-@media (max-width:759px) {
-  :root { --bg:#EEF3EA; --page:#ffffff; --panel:#ffffff; --line:#DCE5D6; --soft:#DCE5D6; --selected:#E8D998; --entry:#ffffff; --entry-border:#DCE5D6; }
-}
-
-
-/* Workspace strict three-colour paper theme - final visual authority */
-:root {
-  --workspace-bg: #EEF3EA;
-  --workspace-ui: #DCE5D6;
-  --workspace-accent: #E8D998;
-  --bg: var(--workspace-bg);
-  --page: #FFFFFF;
-  --panel: #FFFFFF;
-  --line: var(--workspace-ui);
-  --soft: var(--workspace-ui);
-  --entry: #FFFFFF;
-  --entry-border: var(--workspace-ui);
-  --selected: var(--workspace-accent);
-  --today: var(--workspace-accent);
-  --pin: currentColor;
-}
-html, body { background: var(--workspace-bg) !important; }
-
-/* Paper surfaces */
-.global-search-box,
-.global-results,
-.global-result-card,
-.sidebar,
-.notes-sidebar,
-.app,
-.workspace-panel-host,
-.notes-wrap,
-.tasks-panel,
-.activity-panel,
-.events-panel,
-.note-card,
-.note-card.is-pinned,
-.note-title-area,
-.note-tools-row,
-.note-body,
-.expanded-note,
-.expanded-note-head,
-.expanded-note-tools,
-.expanded-body,
-.expanded-links,
-.task-row,
-.activity-row,
-.event-row,
-.project-panel,
-.project-card,
-.project-item,
-.calendar-quarter,
-.calendar-quarter-months,
-.month,
-.calendar-quarter-placeholder,
-.days,
-.weekday-row,
-.slot,
-.help-panel,
-.help-head,
-.move-note-panel,
-.move-note-head,
-.label-panel,
-.label-panel-head,
-.event-editor-panel,
-.event-editor-head,
-.task-editor-panel,
-.task-editor-head,
-.planner-create-panel,
-.planner-create-head,
-.task-note-picker-panel,
-.task-note-picker-head,
-.task-note-picker-item,
-.mobile-home,
-.mobile-section-bar,
-.mobile-more-sheet,
-.voice-capture-panel,
-.voice-capture-head,
-.share-target-panel,
-.share-target-head,
-input,
-textarea,
-select {
-  background-color: #FFFFFF !important;
-  background-image: none !important;
-}
-
-/* Standard UI uses only soft olive */
-.global-search-box,
-.global-results,
-.sidebar,
-.notes-sidebar,
-.app,
-.note-card,
-.task-row,
-.activity-row,
-.event-row,
-.project-panel,
-.project-card,
-.project-item,
-.calendar-quarter,
-.month,
-.help-panel,
-.move-note-panel,
-.label-panel,
-.event-editor-panel,
-.task-editor-panel,
-.planner-create-panel,
-.task-note-picker-panel,
-.mobile-home,
-.mobile-section-bar,
-.mobile-more-sheet,
-.voice-capture-panel,
-.share-target-panel,
-input,
-textarea,
-select,
-button {
-  border-color: var(--workspace-ui) !important;
-}
-.sidebar-head,
-.notes-head,
-header,
-.global-results-head,
-.workspace-footer,
-.quote-block,
-.events-strip,
-.link-preview,
-.note-project-row,
-.task-note-section,
-.event-recurrence-options,
-.task-archive-head,
-.project-head,
-.modal-backdrop .expanded-note-head {
-  background: #FFFFFF !important;
-  border-color: var(--workspace-ui) !important;
-}
-
-/* No section-specific fills */
-#workspaceCalendarTab,
-#workspaceNotesTab,
-#workspaceTasksTab,
-#workspaceActivityTab,
-#workspaceEventsTab,
-#workspaceLabelsTab,
-.task-context-btn,
-.task-date-filter-chip,
-.task-tag-filter-chip,
-.event-strip-item,
-.event-today,
-.event-past,
-.task-schedule-btn,
-.task-schedule-btn.scheduled,
-.task-tag-chip,
-.note-label-chip,
-.label-option,
-.project-link-btn,
-.task-note-btn,
-.expanded-labels-toolbar-btn,
-.expanded-link-note-btn,
-.notes-labels-btn,
-.today-tasks-btn,
-.activity-status,
-.task-status,
-.event-highlight,
-.activity-highlight,
-.task-highlight,
-.timeblock-status,
-.mobile-more-item,
-.voice-capture-types .plain-btn,
-.share-target-types .plain-btn {
-  background: #FFFFFF !important;
-  box-shadow: none !important;
-}
-
-/* Workspace tabs and primary Task lists */
-.workspace-tab,
-.task-context-btn {
-  background: #FFFFFF !important;
-  border: 1px solid var(--workspace-ui) !important;
-  box-shadow: none !important;
-}
-.workspace-tab:hover,
-.workspace-tab:focus-visible,
-.task-context-btn:hover,
-.task-context-btn:focus-visible {
-  background: var(--workspace-ui) !important;
-}
-.workspace-tab.active,
-.task-context-btn.active {
-  background: #FFFFFF !important;
-  border-color: var(--workspace-accent) !important;
-  box-shadow: inset 0 -2px 0 var(--workspace-accent) !important;
-}
-
-/* Secondary Task filters: deliberately quiet until active */
-.task-date-filter-chip,
-.task-tag-filter-chip,
-.task-filter-label {
-  background: transparent !important;
-  border-color: transparent !important;
-  color: inherit !important;
-  opacity: .30;
-  box-shadow: none !important;
-}
-.task-date-filter-chip:hover,
-.task-date-filter-chip:focus-visible,
-.task-tag-filter-chip:hover,
-.task-tag-filter-chip:focus-visible {
-  background: transparent !important;
-  border-color: var(--workspace-ui) !important;
-  opacity: .65;
-}
-.task-date-filter-chip.active,
-.task-tag-filter-chip.active {
-  background: transparent !important;
-  border: 1px solid var(--workspace-ui) !important;
-  color: inherit !important;
-  opacity: 1;
-  text-decoration: none !important;
-}
-.task-navigation-separator,
-.task-date-filter-separator { color: var(--workspace-ui) !important; opacity: 1; }
-
-/* Accent actions */
-#newTaskBtn,
-#addNoteBtn,
-#mobileNotesAddBtn,
-#labelAddBtn,
-#addEventBtn,
-#eventsPanelAddBtn,
-.activity-add-btn,
-.event-save-btn,
-.task-save-btn,
-.planner-create-save,
-.voice-capture-save,
-.share-target-save,
-.mobile-quick-note-btn,
-.mobile-quick-event-btn,
-.mobile-task-capture-btn,
-.mobile-activity-capture-btn,
-.mobile-share-btn,
-.note-capture-save,
-.expanded-edit-btn {
-  background: var(--workspace-accent) !important;
-  border-color: var(--workspace-accent) !important;
-  box-shadow: none !important;
-}
-
-/* Highlights stay white with olive-gold structure only */
-.note-card.is-pinned,
-.task-row.highlighted,
-.task-row.is-highlighted,
-.task-row.task-highlighted,
-.activity-row.highlighted,
-.event-row.highlighted,
-.event-strip-item.highlighted,
-.global-pinned-section {
-  background: #FFFFFF !important;
-  border-color: var(--workspace-accent) !important;
-  box-shadow: inset 3px 0 0 var(--workspace-accent) !important;
-}
-.note-card.is-pinned .note-title-area,
-.note-card.is-pinned .note-tools-row,
-.task-row.highlighted .task-content,
-.activity-row.highlighted .activity-text {
-  background: #FFFFFF !important;
-}
-
-/* Calendar remains paper-white; only selection indicators use accent */
-.calendar-wrap,
-.calendar-quarter,
-.calendar-quarter-months,
-.calendar-quarter .month,
-.month,
-.weekday-row,
-.days,
-.day-btn,
-.day-btn.weekend,
-.day-btn.has-events {
-  background: #FFFFFF !important;
-  box-shadow: none !important;
-}
-.day-btn { border-color: transparent !important; }
-.day-btn.today,
-.day-btn.selected,
-.day-btn.has-events.today,
-.day-btn.has-events.selected,
-.day-btn.today.selected {
-  background: #FFFFFF !important;
-  border-color: var(--workspace-accent) !important;
-  box-shadow: inset 0 -3px 0 var(--workspace-accent) !important;
-}
-
-/* Linked Planner entries use the same white card plus accent edge */
-textarea.event-timeblock,
-textarea.task-timeblock,
-textarea.activity-timeblock {
-  background: #FFFFFF !important;
-  border-left: 3px solid var(--workspace-accent) !important;
-  outline-color: var(--workspace-ui) !important;
-}
-.slot.current-slot { background: #FFFFFF !important; }
-.slot.current-slot::after { background: var(--workspace-accent) !important; }
-
-/* Inputs stay white, focus is soft olive */
-input:focus,
-textarea:focus,
-select:focus,
-textarea.has-text {
-  background: #FFFFFF !important;
-  border-color: var(--workspace-ui) !important;
-  outline-color: var(--workspace-ui) !important;
-}
-
-/* Destructive controls stay typographic, never introduce another fill */
-.delete-note-btn,
-.clear-btn,
-.task-delete,
-.activity-delete,
-.task-archive-delete,
-.task-note-unlink {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-@media (min-width: 760px) {
-  .global-search-wrap,
-  .shell {
-    width: min(210mm, calc(100vw - 24px)) !important;
-    max-width: 210mm !important;
-  }
-  #workspaceTodayTab,
-  .shell > .app,
-  .workspace-panel-host > .app {
-    display: none !important;
-  }
-  .workspace-footer { background: #FFFFFF !important; }
-}
-@media (max-width: 759px) {
-  html, body { background: var(--workspace-bg) !important; }
-}
-
 </style>
-</head>
+
+<style id="workspace-theme-refactor">:root{--bg:#EEF3EA;--page:#FFF;--panel:#FFF;--line:#DCE5D6;--soft:#DCE5D6;--selected:#E8D998;--today:#E8D998}body{background:#EEF3EA!important} .note-card,.task-row,.activity-row,.event-row,.project-card,.month,.calendar-quarter,input,textarea,select,.global-result-card{background:#FFF!important}.task-row.highlighted,.activity-row.highlighted,.event-row.highlighted,.note-card.is-pinned{background:#FFF!important;box-shadow:inset 3px 0 0 #E8D998!important} </style></head>
 <body>
   <div class="capture-toast" id="captureToast" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="global-search-wrap">
@@ -5484,8 +5085,8 @@ textarea.has-text {
   </section>
 
   <section class="mobile-home" id="mobileHome" aria-label="Mobile home">
-    <div class="mobile-home-brand" aria-label="Workspace">
-      <img class="mobile-home-logo" src="logo.png?v=20260831b" alt="Workspace logo" />
+    <div class="mobile-home-brand" aria-label="Timeblocks">
+      <img class="mobile-home-logo" src="logo.png?v=20260831b" alt="Timeblocks logo" />
       <p class="mobile-home-brand-tagline">A lightweight GTD app · Empty your mind. Fast.</p>
       <div class="mobile-home-capture-grid mobile-home-capture-simple" aria-label="Quick capture">
         <button class="plain-btn mobile-capture-pill mobile-task-capture-btn" id="mobileAddTaskBtn" type="button">＋ Task</button>
@@ -5578,7 +5179,7 @@ textarea.has-text {
             <button class="plain-btn nav-day-btn" id="nextDayBtn" type="button">›</button>
           </div>
         </div>
-        <div class="toolbar"><div class="hint">A lightweight GTD app - empty your mind</div><div class="actions"><button class="plain-btn" id="focusViewBtn" type="button" hidden aria-hidden="true" tabindex="-1" title="Focus view" aria-label="Focus view">⛶</button><button class="plain-btn today-tasks-btn" id="todayTasksBtn" type="button" title="Open Today tasks">This Week tasks</button><button class="plain-btn print-today-btn" id="printTodayBtn" type="button" title="Print Today card">Print card</button><button class="plain-btn" id="activityBtn" type="button" hidden>Activity</button><button class="plain-btn" id="addTaskInboxBtn" type="button" hidden>+ Inbox</button><button class="plain-btn" id="addTaskTodayBtn" type="button" hidden>+ This Week</button><button class="plain-btn" id="todayBtn" type="button">Today</button></div></div>
+        <div class="toolbar"><div class="hint">A lightweight GTD app - empty your mind</div><div class="actions"><button class="plain-btn" id="focusViewBtn" type="button" hidden aria-hidden="true" tabindex="-1" title="Focus view" aria-label="Focus view">⛶</button><button class="plain-btn today-tasks-btn" id="todayTasksBtn" type="button" title="Open Today tasks">Today tasks</button><button class="plain-btn print-today-btn" id="printTodayBtn" type="button" title="Print Today card">Print card</button><button class="plain-btn" id="activityBtn" type="button" hidden>Activity</button><button class="plain-btn" id="addTaskInboxBtn" type="button" hidden>+ Inbox</button><button class="plain-btn" id="addTaskTodayBtn" type="button" hidden>+ Today</button><button class="plain-btn" id="todayBtn" type="button">Today</button></div></div>
       </header>
       <section class="events-strip" id="eventsStrip" aria-label="Events for selected date"><div class="events-strip-head"><span class="events-strip-title" id="eventsStripTitle">Events</span><div class="events-strip-list" id="eventsStripList"></div><span class="events-strip-actions"><button class="plain-btn" id="viewEventsBtn" type="button">All events</button><button class="plain-btn event-add-link" id="addEventBtn" type="button" title="Add event" aria-label="Add event">+</button></span></div></section>
       <section class="timeline" id="timeline" aria-label="Day planning from 8 AM to midnight"></section>
@@ -5603,7 +5204,7 @@ textarea.has-text {
     </main>
 
     <aside class="notes-sidebar" id="notesSidebar" aria-label="Lined notepad sidebar">
-      <div class="notes-head"><div class="notes-title">Notepad</div><div class="workspace-tabs" id="workspaceTabs" role="tablist" aria-label="Workspace sections"><button class="workspace-tab" id="workspaceCalendarTab" type="button" role="tab" aria-selected="false">Calendar</button><button class="workspace-tab" id="workspaceTodayTab" type="button" role="tab" aria-selected="false" hidden aria-hidden="true" tabindex="-1">Today</button><button class="workspace-tab active" id="workspaceNotesTab" type="button" role="tab" aria-selected="true">Notes</button><button class="workspace-tab" id="workspaceTasksTab" type="button" role="tab" aria-selected="false">Tasks</button><button class="workspace-tab" id="workspaceActivityTab" type="button" role="tab" aria-selected="false">Activity</button><button class="workspace-tab" id="workspaceEventsTab" type="button" role="tab" aria-selected="false">Events</button></div><button class="plain-btn" id="notesToggle" type="button">Hide</button></div>
+      <div class="notes-head"><div class="notes-title">Notepad</div><div class="workspace-tabs" id="workspaceTabs" role="tablist" aria-label="Workspace sections"><button class="workspace-tab" id="workspaceCalendarTab" type="button" role="tab" aria-selected="false">Calendar</button><button class="workspace-tab" id="workspaceTodayTab" type="button" role="tab" aria-selected="false">Today</button><button class="workspace-tab active" id="workspaceNotesTab" type="button" role="tab" aria-selected="true">Notes</button><button class="workspace-tab" id="workspaceTasksTab" type="button" role="tab" aria-selected="false">Tasks</button><button class="workspace-tab" id="workspaceActivityTab" type="button" role="tab" aria-selected="false">Activity</button><button class="workspace-tab" id="workspaceEventsTab" type="button" role="tab" aria-selected="false">Events</button></div><button class="plain-btn" id="notesToggle" type="button">Hide</button></div>
       <div class="notes-wrap" id="notesWorkspacePanel">
         <div class="notes-search-row" id="notesSearchRow" hidden><input id="notesSearchInput" type="text" placeholder="Search notes..." autocomplete="off" /><button class="plain-btn search-clear-btn" id="notesSearchClear" type="button">×</button></div>
         <button class="plain-btn search-btn" id="notesSearchBtn" type="button" hidden>⌕</button>
@@ -5741,7 +5342,7 @@ textarea.has-text {
   </div>
 
   <div class="modal-backdrop" id="helpModal" aria-hidden="true">
-    <section class="help-panel" role="dialog" aria-modal="true"><div class="help-head"><p class="help-title">Help</p><button class="plain-btn" id="closeHelpBtn" type="button">Close</button></div><div class="help-body"><div class="help-desktop-content"><h3>Getting Started</h3><ol><li>Use Tasks for actions, Events for date-based commitments, Notes for reference, and Activity for a lightweight work log.</li><li>Use the mobile Today view to plan work in 30-minute timeblocks.</li><li>Use the workspace tabs to switch between Calendar, Notes, Tasks, Activity, and Events.</li></ol><h3>Tasks</h3><ul><li>Create Tasks in Inbox, This Week, Later, or Someday.</li><li>Use status, highlight, tags, next action, and optional date/time scheduling.</li><li>Link a Task to a new or existing Note.</li><li>Archive completed Tasks and restore them later if needed.</li></ul><h3>Events</h3><ul><li>Create one-time or recurring Events with an optional time, duration, tag, highlight, and next action.</li><li>Timed Events can appear in the Planner.</li><li>Create a Note or link an existing Note to an Event.</li></ul><h3>Notes</h3><ul><li>Select a compact Note row to open it. Use the star to pin or unpin it.</li><li>Use Labels to organise and filter Notes.</li><li>Use Link Note to connect Notes. Links appear under Related Notes.</li><li>Use Edit for writing and formatting, including bullets, numbering, checklists, and horizontal lines.</li></ul><h3>Voice Capture</h3><ul><li>On mobile, open More, then Voice Capture.</li><li>Use the keyboard microphone or type, then save as a Task, Event, Note, or Activity.</li></ul><h3>Planner</h3><ul><li>Select an empty timeblock to add a Task, Event, or Activity.</li><li>Use the status control to mark a block as Planned, In progress, or Done.</li></ul><h3>Backup &amp; Privacy</h3><ul><li>Export regularly to create a complete local backup. Use Import to restore it.</li><li>Data is stored locally on the current device. No account is required.</li></ul><div class="help-note">Install Workspace as a PWA for an app-like experience. Local data is specific to the browser or installed app, so keep regular exports.</div></div><div class="help-mobile-content"><h3>Quick Start</h3>
+    <section class="help-panel" role="dialog" aria-modal="true"><div class="help-head"><p class="help-title">Help</p><button class="plain-btn" id="closeHelpBtn" type="button">Close</button></div><div class="help-body"><div class="help-desktop-content"><h3>Getting Started</h3><ol><li>Use Tasks for actions, Events for date-based commitments, Notes for reference, and Activity for a lightweight work log.</li><li>Use the Today workspace tab to plan work in 30-minute timeblocks.</li><li>Use the workspace tabs to switch between Calendar, Notes, Tasks, Activity, and Events.</li></ol><h3>Tasks</h3><ul><li>Create Tasks in Inbox, Today, This month, or Someday.</li><li>Use status, highlight, tags, next action, and optional date/time scheduling.</li><li>Link a Task to a new or existing Note.</li><li>Archive completed Tasks and restore them later if needed.</li></ul><h3>Events</h3><ul><li>Create one-time or recurring Events with an optional time, duration, tag, highlight, and next action.</li><li>Timed Events can appear in the Planner.</li><li>Create a Note or link an existing Note to an Event.</li></ul><h3>Notes</h3><ul><li>Select a compact Note row to open it. Use the star to pin or unpin it.</li><li>Use Labels to organise and filter Notes.</li><li>Use Link Note to connect Notes. Links appear under Related Notes.</li><li>Use Edit for writing and formatting, including bullets, numbering, checklists, and horizontal lines.</li></ul><h3>Voice Capture</h3><ul><li>On mobile, open More, then Voice Capture.</li><li>Use the keyboard microphone or type, then save as a Task, Event, Note, or Activity.</li></ul><h3>Planner</h3><ul><li>Select an empty timeblock to add a Task, Event, or Activity.</li><li>Use the status control to mark a block as Planned, In progress, or Done.</li></ul><h3>Backup &amp; Privacy</h3><ul><li>Export regularly to create a complete local backup. Use Import to restore it.</li><li>Data is stored locally on the current device. No account is required.</li></ul><div class="help-note">Install Workspace as a PWA for an app-like experience. Local data is specific to the browser or installed app, so keep regular exports.</div></div><div class="help-mobile-content"><h3>Quick Start</h3>
 <ul>
   <li>+ Task saves a new Task to Inbox.</li>
   <li>+ Note opens simple capture with Labels and Link Note visible.</li>
@@ -5751,7 +5352,7 @@ textarea.has-text {
 <h3>Navigation</h3>
 <ul>
   <li>Today opens the daily Planner.</li>
-  <li>Tasks opens Inbox, This Week, Later, and Someday.</li>
+  <li>Tasks opens Inbox, Today, This month, and Someday.</li>
   <li>Notes opens all Notes and Label filtering.</li>
   <li>More opens Activity, Events, Calendar, Voice Capture, Export, Import, Help, and Share.</li>
 </ul>
@@ -5830,7 +5431,7 @@ textarea.has-text {
         const QUOTE_KEY = "workspace:favouriteQuote";
         const LAST_IMPORT_KEY = "workspace:lastImportAt";
         const TASK_CONTEXTS = ["Inbox", "This Week", "Later", "Someday"];
-        const LEGACY_TASK_CONTEXTS = ["Inbox", "Home", "Work", "Projects", "Today", "This month", "This Week", "Later", "Someday"];
+        const LEGACY_TASK_CONTEXTS = ["Inbox", "Home", "Work", "Projects", "Today"];
         const el = id => document.getElementById(id);
         const globalSearchInput = el("globalSearchInput");
         const globalSearchClear = el("globalSearchClear");
@@ -6127,9 +5728,8 @@ textarea.has-text {
         let projects = normalizeProjects(loadJson(PROJECTS_KEY, []));
         let activeProjectId = null;
         let activityHideCompleted = localStorage.getItem(ACTIVITY_HIDE_COMPLETED_KEY) === "true";
-        let activeTaskContext = "This Week";
-        if (["Home", "Work", "Projects", "This month"].includes(activeTaskContext)) activeTaskContext = "Later";
-        if (activeTaskContext === "Today") activeTaskContext = "This Week";
+        let activeTaskContext = "Today";
+        if (activeTaskContext === "Home" || activeTaskContext === "Work" || activeTaskContext === "Projects") activeTaskContext = "This month";
         if (!TASK_CONTEXTS.includes(activeTaskContext)) activeTaskContext = "Inbox";
         let activeTaskTagFilter = "";
         let activeTaskDateFilter = "all";
@@ -7318,7 +6918,7 @@ ${reference}` : reference;
             const type = plannerCreateType.value;
             if (type === "task") {
                 const task = { id: createId("task"), text, status: "not-started", done: false, highlighted: false, tags: [], date: dateKey, time: plannerCreateTime, noteLink: null, createdAt: new Date().toISOString() };
-                globalTasks["This Week"].unshift(task); saveTasks(); populateTaskTimeblock(task, false); renderGlobalTasks();
+                globalTasks.Today.unshift(task); saveTasks(); populateTaskTimeblock(task, false); renderGlobalTasks();
             } else if (type === "event") {
                 const event = { id: createId("event"), title: text, highlighted: false, date: dateKey, time: plannerCreateTime, durationMinutes: 30, recurrence: null, seriesId: "", originalDate: "", cancelled: false, createdAt: new Date().toISOString() };
                 events.push(event); saveEvents(); populateEventTimeblock(event, false); renderEvents(); buildCalendar();
@@ -7594,27 +7194,20 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
         }
         function normalizeTaskLists(raw) {
             const empty = Object.fromEntries(TASK_CONTEXTS.map(context => [context, []]));
-            if (Array.isArray(raw)) {
-                empty.Inbox = raw.map(task => normalizeTask(task));
+            if (Array.isArray(raw)) { empty.Inbox = raw.map(task => normalizeTask(task)); return empty; }
+            if (!raw || typeof raw !== "object") return empty;
+            const hasLegacyLists = ["Home", "Work", "Projects"].some(context => Array.isArray(raw[context]));
+            if (hasLegacyLists) {
+                empty.Inbox = (raw.Inbox || []).map(task => normalizeTask(task));
+                empty.Today = (raw.Today || []).map(task => normalizeTask(task));
+                ["Home", "Work", "Projects"].forEach(context => {
+                    (raw[context] || []).forEach(task => { const migrated = normalizeTask(task); migrated.tags = normalizeTaskTags(migrated.tags.concat(context)); empty["This month"].push(migrated); });
+                });
+                (raw["This month"] || []).forEach(task => empty["This month"].push(normalizeTask(task)));
+                (raw.Someday || []).forEach(task => empty.Someday.push(normalizeTask(task)));
                 return empty;
             }
-            if (!raw || typeof raw !== "object") return empty;
-            const append = (source, target, addTag = "") => {
-                (Array.isArray(raw[source]) ? raw[source] : []).forEach(item => {
-                    const task = normalizeTask(item);
-                    if (addTag) task.tags = normalizeTaskTags(task.tags.concat(addTag));
-                    empty[target].push(task);
-                });
-            };
-            append("Inbox", "Inbox");
-            append("Today", "This Week");
-            append("This Week", "This Week");
-            append("This month", "Later");
-            append("Later", "Later");
-            append("Home", "Later", "Home");
-            append("Work", "Later", "Work");
-            append("Projects", "Later", "Projects");
-            append("Someday", "Someday");
+            TASK_CONTEXTS.forEach(context => { if (Array.isArray(raw[context])) empty[context] = raw[context].map(task => normalizeTask(task)); });
             return empty;
         }
         function normalizeArchivedTasks(raw) {
@@ -7655,6 +7248,8 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
                 return task;
             });
             return list.sort((a, b) => {
+                if (a.highlighted !== b.highlighted)
+                    return a.highlighted ? -1 : 1;
                 const aScheduled = Boolean(a.date && a.time);
                 const bScheduled = Boolean(b.date && b.time);
                 if (aScheduled !== bScheduled)
@@ -7834,16 +7429,16 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
                 const restore = document.createElement("button");
                 restore.type = "button";
                 restore.className = "plain-btn task-archive-restore";
-                restore.textContent = "Restore task to This Week";
-                restore.title = "Restore this task to This Week";
-                restore.setAttribute("aria-label", `Restore ${task.text} to This Week`);
+                restore.textContent = "Restore task to Today";
+                restore.title = "Restore this task to Today";
+                restore.setAttribute("aria-label", `Restore ${task.text} to Today`);
                 restore.addEventListener("click", () => {
                     archivedTasks = archivedTasks.filter(item => item.id !== task.id);
                     task.status = "not-started";
                     task.done = false;
                     delete task.archivedAt;
                     delete task.sourceContext;
-                    globalTasks["This Week"].unshift(task);
+                    globalTasks.Today.unshift(task);
                     saveArchivedTasks();
                     saveTasks();
                     renderGlobalTasks();
@@ -8156,7 +7751,7 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
             }
         }
         function writeDateData(key, data) { localStorage.setItem(dateStorageKey(key), JSON.stringify(data)); }
-        function backupFileName() { return `workspace-backup-${toKey(getToday())}.txt`; }
+        function backupFileName() { return `timeblocks-backup-${toKey(getToday())}.txt`; }
         function exportBackup() {
             const data = {};
             for (let index = 0; index < localStorage.length; index += 1) {
@@ -8171,7 +7766,7 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
                 }
             }
             const backup = {
-                app: "Workspace",
+                app: "Timeblocks",
                 version: "1.0",
                 exportedAt: new Date().toISOString(),
                 preferences: { notesCompact, activeTaskContext },
@@ -8200,11 +7795,11 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
                 backup = JSON.parse(text);
             }
             catch (error) {
-                alert("This file is not a valid Workspace backup.");
+                alert("This file is not a valid Timeblocks backup.");
                 return;
             }
             if (!backup || backup.app !== "Timeblocks" || !isValidBackupData(backup.data)) {
-                alert("This file does not look like a Workspace backup.");
+                alert("This file does not look like a Timeblocks backup.");
                 return;
             }
             const entries = Object.entries(backup.data).filter(([key, value]) => /^workspace:\d{4}-\d{2}-\d{2}$/.test(key) && isValidBackupData(value));
@@ -8240,7 +7835,7 @@ currentEntry.text = text.value; autoGrowActivityText(text); saveActivity(); upda
                 saveActivity();
             }
             if (backup.preferences && (TASK_CONTEXTS.includes(backup.preferences.activeTaskContext) || LEGACY_TASK_CONTEXTS.includes(backup.preferences.activeTaskContext))) {
-                activeTaskContext = backup.preferences.activeTaskContext === "Today" ? "This Week" : (["Home", "Work", "Projects", "This month"].includes(backup.preferences.activeTaskContext) ? "Later" : backup.preferences.activeTaskContext);
+                activeTaskContext = ["Home", "Work", "Projects"].includes(backup.preferences.activeTaskContext) ? "This month" : backup.preferences.activeTaskContext;
                 localStorage.setItem(TASK_CONTEXT_KEY, activeTaskContext);
             }
             renderGlobalTasks();
@@ -9104,7 +8699,7 @@ ${body}` : title };
         function openTodayTasksWorkspace() {
             if (isMobileViewport()) return;
             showDesktopWorkspacePanel("tasks");
-            activeTaskContext = "This Week";
+            activeTaskContext = "Today";
             activeTaskTagFilter = "";
             localStorage.setItem(TASK_CONTEXT_KEY, activeTaskContext);
             renderGlobalTasks();
@@ -9185,16 +8780,16 @@ ${body}` : title };
         }
         function openTasksTodayShortcut() {
             openTasks();
-            activeTaskContext = "This Week";
+            activeTaskContext = "Today";
             localStorage.setItem(TASK_CONTEXT_KEY, activeTaskContext);
             renderGlobalTasks();
-            openNewTaskEditor("This Week");
+            openNewTaskEditor("Today");
         }
         function openMobileTodayTasks() {
             if (!isMobileViewport())
                 return;
             openTasks();
-            activeTaskContext = "This Week";
+            activeTaskContext = "Today";
             activeTaskTagFilter = "";
             localStorage.setItem(TASK_CONTEXT_KEY, activeTaskContext);
             renderGlobalTasks();
@@ -9397,7 +8992,7 @@ ${body}` : title };
             const shareData = {
                 title: "Workspace",
                 text: "Workspace",
-                url: "https://pprashil26.github.io/workspace/"
+                url: "https://pprashil26.github.io/fastgtd/"
             };
             const markCopied = () => {
                 const originalText = mobileShareBtn.textContent;
@@ -9627,7 +9222,7 @@ ${body}` : title };
             if (!tasks.length) {
                 const empty = document.createElement("div");
                 empty.className = "print-card-empty";
-                empty.textContent = "No This Week tasks";
+                empty.textContent = "No Today tasks";
                 printCardTasks.appendChild(empty);
                 return;
             }
@@ -9667,7 +9262,7 @@ ${body}` : title };
             const dateKey = toKey(today);
             const data = readDateData(dateKey);
             printCardDate.textContent = today.toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
-            renderPrintTasks(orderTasks(globalTasks["This Week"] || []));
+            renderPrintTasks(orderTasks(globalTasks.Today || []));
             const entries = data.entries && typeof data.entries === "object" ? data.entries : {};
             renderPrintTimeblocks(entries);
         }
@@ -10421,7 +10016,7 @@ ${body}` : title };
             placePlannerForDesktop();
             desktopCalendarCollapsed = false;
             sidebar.hidden = true;
-            activeTaskContext = "This Week";
+            activeTaskContext = "Today";
             activeTaskTagFilter = "";
             localStorage.setItem(TASK_CONTEXT_KEY, activeTaskContext);
             showDesktopWorkspacePanel("tasks");
@@ -10612,8 +10207,7 @@ if (key === "e") {
                 });
             });
         });
-        const mobileTaskList = document.getElementById("globalTaskList");
-        if (mobileTaskList) mobileTaskTitleObserver.observe(mobileTaskList, { childList: true, subtree: true });
+        if (globalTaskList) mobileTaskTitleObserver.observe(globalTaskList, { childList: true, subtree: true });
         window.addEventListener("resize", resizeAllMobileTaskTitles);
 </script>
 </body>
