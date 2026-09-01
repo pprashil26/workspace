@@ -5128,6 +5128,345 @@ textarea:focus, input:focus, select:focus { background:#ffffff; outline:2px soli
   :root { --bg:#EEF3EA; --page:#ffffff; --panel:#ffffff; --line:#DCE5D6; --soft:#DCE5D6; --selected:#E8D998; --entry:#ffffff; --entry-border:#DCE5D6; }
 }
 
+
+/* Workspace strict three-colour paper theme - final visual authority */
+:root {
+  --workspace-bg: #EEF3EA;
+  --workspace-ui: #DCE5D6;
+  --workspace-accent: #E8D998;
+  --bg: var(--workspace-bg);
+  --page: #FFFFFF;
+  --panel: #FFFFFF;
+  --line: var(--workspace-ui);
+  --soft: var(--workspace-ui);
+  --entry: #FFFFFF;
+  --entry-border: var(--workspace-ui);
+  --selected: var(--workspace-accent);
+  --today: var(--workspace-accent);
+  --pin: currentColor;
+}
+html, body { background: var(--workspace-bg) !important; }
+
+/* Paper surfaces */
+.global-search-box,
+.global-results,
+.global-result-card,
+.sidebar,
+.notes-sidebar,
+.app,
+.workspace-panel-host,
+.notes-wrap,
+.tasks-panel,
+.activity-panel,
+.events-panel,
+.note-card,
+.note-card.is-pinned,
+.note-title-area,
+.note-tools-row,
+.note-body,
+.expanded-note,
+.expanded-note-head,
+.expanded-note-tools,
+.expanded-body,
+.expanded-links,
+.task-row,
+.activity-row,
+.event-row,
+.project-panel,
+.project-card,
+.project-item,
+.calendar-quarter,
+.calendar-quarter-months,
+.month,
+.calendar-quarter-placeholder,
+.days,
+.weekday-row,
+.slot,
+.help-panel,
+.help-head,
+.move-note-panel,
+.move-note-head,
+.label-panel,
+.label-panel-head,
+.event-editor-panel,
+.event-editor-head,
+.task-editor-panel,
+.task-editor-head,
+.planner-create-panel,
+.planner-create-head,
+.task-note-picker-panel,
+.task-note-picker-head,
+.task-note-picker-item,
+.mobile-home,
+.mobile-section-bar,
+.mobile-more-sheet,
+.voice-capture-panel,
+.voice-capture-head,
+.share-target-panel,
+.share-target-head,
+input,
+textarea,
+select {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+}
+
+/* Standard UI uses only soft olive */
+.global-search-box,
+.global-results,
+.sidebar,
+.notes-sidebar,
+.app,
+.note-card,
+.task-row,
+.activity-row,
+.event-row,
+.project-panel,
+.project-card,
+.project-item,
+.calendar-quarter,
+.month,
+.help-panel,
+.move-note-panel,
+.label-panel,
+.event-editor-panel,
+.task-editor-panel,
+.planner-create-panel,
+.task-note-picker-panel,
+.mobile-home,
+.mobile-section-bar,
+.mobile-more-sheet,
+.voice-capture-panel,
+.share-target-panel,
+input,
+textarea,
+select,
+button {
+  border-color: var(--workspace-ui) !important;
+}
+.sidebar-head,
+.notes-head,
+header,
+.global-results-head,
+.workspace-footer,
+.quote-block,
+.events-strip,
+.link-preview,
+.note-project-row,
+.task-note-section,
+.event-recurrence-options,
+.task-archive-head,
+.project-head,
+.modal-backdrop .expanded-note-head {
+  background: #FFFFFF !important;
+  border-color: var(--workspace-ui) !important;
+}
+
+/* No section-specific fills */
+#workspaceCalendarTab,
+#workspaceNotesTab,
+#workspaceTasksTab,
+#workspaceActivityTab,
+#workspaceEventsTab,
+#workspaceLabelsTab,
+.task-context-btn,
+.task-date-filter-chip,
+.task-tag-filter-chip,
+.event-strip-item,
+.event-today,
+.event-past,
+.task-schedule-btn,
+.task-schedule-btn.scheduled,
+.task-tag-chip,
+.note-label-chip,
+.label-option,
+.project-link-btn,
+.task-note-btn,
+.expanded-labels-toolbar-btn,
+.expanded-link-note-btn,
+.notes-labels-btn,
+.today-tasks-btn,
+.activity-status,
+.task-status,
+.event-highlight,
+.activity-highlight,
+.task-highlight,
+.timeblock-status,
+.mobile-more-item,
+.voice-capture-types .plain-btn,
+.share-target-types .plain-btn {
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+}
+
+/* Workspace tabs and primary Task lists */
+.workspace-tab,
+.task-context-btn {
+  background: #FFFFFF !important;
+  border: 1px solid var(--workspace-ui) !important;
+  box-shadow: none !important;
+}
+.workspace-tab:hover,
+.workspace-tab:focus-visible,
+.task-context-btn:hover,
+.task-context-btn:focus-visible {
+  background: var(--workspace-ui) !important;
+}
+.workspace-tab.active,
+.task-context-btn.active {
+  background: #FFFFFF !important;
+  border-color: var(--workspace-accent) !important;
+  box-shadow: inset 0 -2px 0 var(--workspace-accent) !important;
+}
+
+/* Secondary Task filters: deliberately quiet until active */
+.task-date-filter-chip,
+.task-tag-filter-chip,
+.task-filter-label {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: inherit !important;
+  opacity: .30;
+  box-shadow: none !important;
+}
+.task-date-filter-chip:hover,
+.task-date-filter-chip:focus-visible,
+.task-tag-filter-chip:hover,
+.task-tag-filter-chip:focus-visible {
+  background: transparent !important;
+  border-color: var(--workspace-ui) !important;
+  opacity: .65;
+}
+.task-date-filter-chip.active,
+.task-tag-filter-chip.active {
+  background: transparent !important;
+  border: 1px solid var(--workspace-ui) !important;
+  color: inherit !important;
+  opacity: 1;
+  text-decoration: none !important;
+}
+.task-navigation-separator,
+.task-date-filter-separator { color: var(--workspace-ui) !important; opacity: 1; }
+
+/* Accent actions */
+#newTaskBtn,
+#addNoteBtn,
+#mobileNotesAddBtn,
+#labelAddBtn,
+#addEventBtn,
+#eventsPanelAddBtn,
+.activity-add-btn,
+.event-save-btn,
+.task-save-btn,
+.planner-create-save,
+.voice-capture-save,
+.share-target-save,
+.mobile-quick-note-btn,
+.mobile-quick-event-btn,
+.mobile-task-capture-btn,
+.mobile-activity-capture-btn,
+.mobile-share-btn,
+.note-capture-save,
+.expanded-edit-btn {
+  background: var(--workspace-accent) !important;
+  border-color: var(--workspace-accent) !important;
+  box-shadow: none !important;
+}
+
+/* Highlights stay white with olive-gold structure only */
+.note-card.is-pinned,
+.task-row.highlighted,
+.task-row.is-highlighted,
+.task-row.task-highlighted,
+.activity-row.highlighted,
+.event-row.highlighted,
+.event-strip-item.highlighted,
+.global-pinned-section {
+  background: #FFFFFF !important;
+  border-color: var(--workspace-accent) !important;
+  box-shadow: inset 3px 0 0 var(--workspace-accent) !important;
+}
+.note-card.is-pinned .note-title-area,
+.note-card.is-pinned .note-tools-row,
+.task-row.highlighted .task-content,
+.activity-row.highlighted .activity-text {
+  background: #FFFFFF !important;
+}
+
+/* Calendar remains paper-white; only selection indicators use accent */
+.calendar-wrap,
+.calendar-quarter,
+.calendar-quarter-months,
+.calendar-quarter .month,
+.month,
+.weekday-row,
+.days,
+.day-btn,
+.day-btn.weekend,
+.day-btn.has-events {
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+}
+.day-btn { border-color: transparent !important; }
+.day-btn.today,
+.day-btn.selected,
+.day-btn.has-events.today,
+.day-btn.has-events.selected,
+.day-btn.today.selected {
+  background: #FFFFFF !important;
+  border-color: var(--workspace-accent) !important;
+  box-shadow: inset 0 -3px 0 var(--workspace-accent) !important;
+}
+
+/* Linked Planner entries use the same white card plus accent edge */
+textarea.event-timeblock,
+textarea.task-timeblock,
+textarea.activity-timeblock {
+  background: #FFFFFF !important;
+  border-left: 3px solid var(--workspace-accent) !important;
+  outline-color: var(--workspace-ui) !important;
+}
+.slot.current-slot { background: #FFFFFF !important; }
+.slot.current-slot::after { background: var(--workspace-accent) !important; }
+
+/* Inputs stay white, focus is soft olive */
+input:focus,
+textarea:focus,
+select:focus,
+textarea.has-text {
+  background: #FFFFFF !important;
+  border-color: var(--workspace-ui) !important;
+  outline-color: var(--workspace-ui) !important;
+}
+
+/* Destructive controls stay typographic, never introduce another fill */
+.delete-note-btn,
+.clear-btn,
+.task-delete,
+.activity-delete,
+.task-archive-delete,
+.task-note-unlink {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 760px) {
+  .global-search-wrap,
+  .shell {
+    width: min(210mm, calc(100vw - 24px)) !important;
+    max-width: 210mm !important;
+  }
+  #workspaceTodayTab,
+  .shell > .app,
+  .workspace-panel-host > .app {
+    display: none !important;
+  }
+  .workspace-footer { background: #FFFFFF !important; }
+}
+@media (max-width: 759px) {
+  html, body { background: var(--workspace-bg) !important; }
+}
+
 </style>
 </head>
 <body>
