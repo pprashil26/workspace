@@ -2,166 +2,97 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workspace</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Work Tasks</title>
+<meta name="description" content="A simple local-first work task and linked notes app.">
+<meta name="theme-color" content="#f6f7f5">
 <style>
-:root{
-  --bg:#EEF3EA;
-  --ui:#DCE5D6;
-  --accent:#E8D998;
-  --white:#FFFFFF;
-  --text:#2F3A2F;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-header{
-  background:var(--ui);
-  padding:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-main{
-  flex:1;
-  display:flex;
-  overflow:hidden;
-}
-.sidebar{
-  width:220px;
-  background:var(--ui);
-  padding:12px;
-}
-.sidebar button{
-  width:100%;
-  margin-bottom:6px;
-}
-.content{
-  flex:1;
-  padding:16px;
-  overflow:auto;
-}
-.card{
-  background:var(--white);
-  border-radius:12px;
-  padding:12px;
-  margin-bottom:10px;
-}
-input,textarea,button{
-  font:inherit;
-}
-input,textarea{
-  width:100%;
-  padding:8px;
-}
-.filters{
-  display:flex;
-  gap:8px;
-  margin:12px 0;
-}
-.notes-view{display:none}
-.note-layout{
-  display:grid;
-  grid-template-columns:240px 1fr;
-  gap:12px;
-}
+:root{--bg:#c7cdc6;--page:#fff;--panel:#fafbf9;--ink:#30352f;--muted:#6f766d;--line:#dfe4df;--soft:#f1f3f0;--entry:#edf4f0;--entry-border:#b8cec2;--selected:#d7e7de;--accent:#e8d998;--danger:#9a5d57;--shadow:0 10px 26px rgba(46,57,50,.08);--radius:16px;--card-radius:11px}
+*{box-sizing:border-box}[hidden]{display:none!important}html{min-height:100%}body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:13px;line-height:1.4;padding:12px}button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}.plain-btn,.icon-btn{border:0;background:transparent;color:var(--muted);border-radius:9px;min-height:32px}.plain-btn{padding:5px 8px}.plain-btn:hover,.icon-btn:hover{background:var(--soft);color:var(--ink)}.icon-btn{width:32px;padding:0;display:inline-flex;align-items:center;justify-content:center}.primary-btn{border:1px solid #d8c76e;background:#f8eaa2;color:#4f4518;border-radius:10px;min-height:34px;padding:5px 12px;font-weight:700}.primary-btn:hover{background:#f3df7d}.danger{color:var(--danger)!important}.shell{width:min(794px,calc(100vw - 24px));min-height:calc(100vh - 24px);margin:auto;background:var(--page);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}.app-head{min-height:52px;padding:9px 12px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff 0%,#f6f8f5 100%);display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-size:17px;font-weight:700}.head-actions{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.search-bar{padding:8px 12px;border-bottom:1px solid var(--line);background:var(--panel)}.search-bar input,.field{width:100%;min-height:36px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:7px 10px;outline:0}.search-bar input:focus,.field:focus{border-color:var(--entry-border);background:var(--entry);box-shadow:0 0 0 2px rgba(184,206,194,.25)}.tabs{display:flex;align-items:center;gap:4px;padding:7px 10px;border-bottom:1px solid var(--line);background:#fff}.tab{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:9px;min-height:32px;padding:5px 12px;font-weight:650}.tab.active{background:var(--selected);border-color:var(--entry-border);color:var(--ink)}.main{flex:1;min-height:0}.view{padding:10px 12px 14px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.toolbar-title{font-size:14px;font-weight:700}.toolbar-actions{display:flex;align-items:center;gap:5px}.list-tabs,.filters{display:flex;align-items:center;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:7px}.list-tabs::-webkit-scrollbar,.filters::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;min-height:29px;padding:4px 9px}.chip.active{background:var(--selected);border-color:var(--entry-border);color:var(--ink);font-weight:700}.filters{border-top:1px solid var(--line);padding-top:7px}.filter{flex:0 0 auto;border:0;background:transparent;color:#a3aaa1;min-height:26px;padding:2px 4px;font-size:11px}.filter.active{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:4px}.list{display:grid;gap:5px}.task-card{display:grid;grid-template-columns:30px 30px minmax(0,1fr) auto;align-items:start;gap:5px;padding:6px;border:1px solid var(--line);border-radius:var(--card-radius);background:#fff}.task-card.highlighted{border-color:#c9b96e;box-shadow:inset 3px 0 0 #c9b96e}.task-status,.task-highlight{width:30px;height:30px;border:0;background:transparent;border-radius:8px;color:var(--muted)}.task-status:hover,.task-highlight:hover{background:var(--soft)}.task-main{min-width:0;padding:4px 0}.task-title{font-size:13px;font-weight:600;overflow-wrap:anywhere}.task-card.done .task-title{text-decoration:line-through;color:var(--muted)}.task-next,.task-meta{margin-top:2px;color:var(--muted);font-size:10.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.task-actions{display:flex;align-items:center;gap:1px}.empty{padding:28px 10px;text-align:center;color:var(--muted)}.notes-list{display:grid;gap:5px}.note-row{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:6px;min-height:42px;padding:4px 7px;border:1px solid var(--line);border-radius:var(--card-radius);background:#fff;cursor:pointer}.note-row.pinned{border-color:#c9b96e;box-shadow:inset 3px 0 0 #c9b96e}.note-name{font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.note-preview{color:var(--muted);font-size:10.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.note-links{color:var(--muted);font-size:10px;white-space:nowrap}.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(48,53,47,.28);backdrop-filter:blur(1px)}.modal.open{display:flex}.dialog{width:min(430px,94vw);max-height:90vh;background:var(--page);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px rgba(35,45,38,.22);overflow:hidden;display:flex;flex-direction:column}.dialog.wide{width:min(650px,94vw)}.dialog-head{min-height:48px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;align-items:center;justify-content:space-between;gap:8px}.dialog-title{font-weight:700}.dialog-body{padding:12px;display:grid;gap:8px;overflow-y:auto}.dialog-actions{padding:8px 12px 12px;display:flex;align-items:center;gap:7px}.dialog-actions .spacer{flex:1}.field-group{display:grid;gap:4px}.field-group label{color:var(--muted);font-size:11px;font-weight:650}.row-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.check-line{display:flex;align-items:center;gap:8px;min-height:32px}.note-body{min-height:320px;resize:vertical;line-height:26px;background-color:#fff;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 25px,rgba(160,145,120,.18) 26px)}.related{border-top:1px solid var(--line);padding-top:8px}.related-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px}.related-list{display:grid;gap:4px}.related-item{display:flex;align-items:center;justify-content:space-between;gap:6px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:5px 7px}.related-open{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}.backup-input{display:none}.help{padding-left:18px;margin:4px 0}.footer{padding:7px 12px;border-top:1px solid var(--line);background:var(--panel);color:var(--muted);font-size:10.5px;text-align:center}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,12px);z-index:200;opacity:0;pointer-events:none;padding:8px 13px;border:1px solid #9bb6a7;border-radius:999px;background:#eef7f1;color:#315445;font-weight:700;transition:.16s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:759px){body{padding:6px;background:#f6f7f5}.shell{width:100%;min-height:calc(100vh - 12px);border-radius:14px}.app-head{padding:8px 10px}.brand{font-size:16px}.head-actions .desktop-label{display:none}.search-bar,.view{padding-left:9px;padding-right:9px}.tabs{position:sticky;top:0;z-index:5}.tab{flex:1}.task-card{grid-template-columns:30px 30px minmax(0,1fr) 32px}.task-actions .secondary-action{display:none}.row-2{grid-template-columns:1fr}.dialog{width:calc(100vw - 12px);max-height:92dvh}.dialog.wide{width:calc(100vw - 12px)}.note-body{min-height:48dvh;font-size:16px}.field{font-size:16px}.modal{padding:6px}}
 </style>
 </head>
 <body>
-
-<header>
-  <strong>Workspace</strong>
-  <div>
-    <button>Export</button>
-    <button>Import</button>
-  </div>
-</header>
-
-<main>
-
-  <aside class="sidebar">
-    <button id="tasksBtn">Tasks</button>
-    <button id="notesBtn">Notes</button>
-
-    <hr><br>
-
-    <button>Inbox</button>
-    <button>This Week</button>
-    <button>Later</button>
-    <button>Someday</button>
-  </aside>
-
-  <section class="content">
-
-    <div id="tasksView">
-
-      <div class="card">
-        <input placeholder="Add task...">
-      </div>
-
-      <div class="filters">
-        <button>All</button>
-        <button>Next Actions</button>
-        <button>Scheduled</button>
-        <button>No Date</button>
-      </div>
-
-      <div class="card">
-        <input type="checkbox"> Review audit evidence
-        <button>⭐</button>
-      </div>
-
-    </div>
-
-    <div id="notesView" class="notes-view">
-
-      <div class="note-layout">
-
-        <div class="card">
-          <button>+ Note</button>
-          <br><br>
-          <div>Project Notes</div>
-          <div>Meeting Notes</div>
-        </div>
-
-        <div class="card">
-          <input placeholder="Note title">
-          <br><br>
-          <textarea rows="18" placeholder="Supports [[Linked Notes]]"></textarea>
-          <br><br>
-          <strong>Backlinks</strong>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="shell">
+<header class="app-head"><div class="brand">Work Tasks</div><div class="head-actions"><button class="plain-btn" id="exportBtn">Export</button><button class="plain-btn" id="importBtn">Import</button><button class="plain-btn" id="helpBtn">Help</button><input class="backup-input" id="importFile" type="file" accept="application/json,.json"></div></header>
+<div class="search-bar"><input id="searchInput" type="search" placeholder="Search tasks and notes..." autocomplete="off" aria-label="Search tasks and notes"></div>
+<nav class="tabs"><button class="tab active" data-view="tasks">Tasks</button><button class="tab" data-view="notes">Notes</button></nav>
+<main class="main">
+<section class="view" id="tasksView">
+<div class="toolbar"><span class="toolbar-title">Tasks</span><button class="primary-btn" id="addTaskBtn">+ Task</button></div>
+<div class="list-tabs" id="taskLists"></div>
+<div class="filters" id="taskFilters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="next">Next Actions</button><button class="filter" data-filter="scheduled">Scheduled</button><button class="filter" data-filter="no-date">No Date</button></div>
+<div class="list" id="taskList"></div>
+</section>
+<section class="view" id="notesView" hidden>
+<div class="toolbar"><span class="toolbar-title">Notes</span><button class="primary-btn" id="addNoteBtn">+ Note</button></div>
+<div class="notes-list" id="notesList"></div>
+</section>
 </main>
+<footer class="footer">Saved locally on this device</footer>
+</div>
 
+<div class="modal" id="taskModal" aria-hidden="true"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="taskDialogTitle"><div class="dialog-head"><span class="dialog-title" id="taskDialogTitle">Task</span><button class="plain-btn" data-close="taskModal">Close</button></div><div class="dialog-body">
+<div class="field-group"><label for="taskTitle">Task</label><input class="field" id="taskTitle" maxlength="240" autocomplete="off"></div>
+<div class="field-group"><label for="taskNext">Next action <small>(optional)</small></label><input class="field" id="taskNext" maxlength="160" placeholder="What is the very next action?"></div>
+<div class="field-group"><label for="taskListSelect">List</label><select class="field" id="taskListSelect"></select></div>
+<div class="row-2"><div class="field-group"><label for="taskDate">Date <small>(optional)</small></label><input class="field" id="taskDate" type="date"></div><div class="field-group"><label for="taskTime">Time <small>(optional)</small></label><input class="field" id="taskTime" type="time"></div></div>
+<label class="check-line"><input id="taskHighlight" type="checkbox"> Highlight task</label>
+<div class="field-group"><label for="taskNoteSelect">Linked note <small>(optional)</small></label><select class="field" id="taskNoteSelect"><option value="">None</option></select></div>
+</div><div class="dialog-actions"><button class="plain-btn danger" id="deleteTaskBtn">Delete</button><span class="spacer"></span><button class="plain-btn" data-close="taskModal">Cancel</button><button class="primary-btn" id="saveTaskBtn">Save</button></div></section></div>
+
+<div class="modal" id="noteModal" aria-hidden="true"><section class="dialog wide" role="dialog" aria-modal="true" aria-labelledby="noteDialogTitle"><div class="dialog-head"><span class="dialog-title" id="noteDialogTitle">Note</span><button class="plain-btn" data-close="noteModal">Close</button></div><div class="dialog-body">
+<div class="field-group"><label for="noteTitle">Title</label><input class="field" id="noteTitle" maxlength="160" autocomplete="off"></div>
+<div class="field-group"><label for="noteBody">Content</label><textarea class="field note-body" id="noteBody" placeholder="Write your note. Link another note with [[Note Title]]."></textarea></div>
+<label class="check-line"><input id="notePinned" type="checkbox"> Pin note</label>
+<div class="related" id="relatedArea" hidden><div class="related-title">Related Notes and Backlinks</div><div class="related-list" id="relatedList"></div></div>
+</div><div class="dialog-actions"><button class="plain-btn danger" id="deleteNoteBtn">Delete</button><span class="spacer"></span><button class="plain-btn" data-close="noteModal">Cancel</button><button class="primary-btn" id="saveNoteBtn">Save</button></div></section></div>
+
+<div class="modal" id="helpModal" aria-hidden="true"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><div class="dialog-head"><span class="dialog-title" id="helpTitle">Help</span><button class="plain-btn" data-close="helpModal">Close</button></div><div class="dialog-body"><strong>Tasks</strong><ul class="help"><li>Use Inbox, This Week, Later and Someday.</li><li>Add an optional next action, date, time, highlight or linked note.</li><li>Use the circle to complete a task and the star to highlight it.</li></ul><strong>Notes</strong><ul class="help"><li>Notes contain a title and content only.</li><li>Type <code>[[Note Title]]</code> to link notes.</li><li>Related notes and backlinks appear in the note editor.</li></ul><strong>Data</strong><ul class="help"><li>All data stays in this browser.</li><li>Export regularly and use Import to restore a backup.</li></ul></div></section></div>
 <script>
-const tasksBtn=document.getElementById('tasksBtn');
-const notesBtn=document.getElementById('notesBtn');
-const tasksView=document.getElementById('tasksView');
-const notesView=document.getElementById('notesView');
-
-tasksBtn.onclick=()=>{
- tasksView.style.display='block';
- notesView.style.display='none';
-};
-
-notesBtn.onclick=()=>{
- tasksView.style.display='none';
- notesView.style.display='block';
-};
+(()=>{'use strict';
+const KEY='worktasks:v1';
+const LISTS=['Inbox','This Week','Later','Someday'];
+const $=id=>document.getElementById(id);
+const app={tasks:[],notes:[],activeList:'Inbox',filter:'all',view:'tasks'};
+let editingTaskId=null,editingNoteId=null,saveTimer=null;
+function id(prefix){return prefix+'-'+Date.now()+'-'+Math.random().toString(16).slice(2)}
+function clean(v){return String(v??'').trim()}
+function normalize(raw){const out={tasks:[],notes:[],activeList:'Inbox',filter:'all',view:'tasks'};if(!raw||typeof raw!=='object')return out;if(Array.isArray(raw.tasks))out.tasks=raw.tasks.map(t=>({id:clean(t.id)||id('task'),title:clean(t.title),nextAction:clean(t.nextAction),list:LISTS.includes(t.list)?t.list:'Inbox',date:/^\d{4}-\d{2}-\d{2}$/.test(t.date||'')?t.date:'',time:/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(t.time||'')?t.time:'',done:Boolean(t.done),highlighted:Boolean(t.highlighted),noteId:clean(t.noteId),createdAt:t.createdAt||new Date().toISOString()})).filter(t=>t.title);if(Array.isArray(raw.notes))out.notes=raw.notes.map(n=>({id:clean(n.id)||id('note'),title:clean(n.title)||'Untitled',body:String(n.body??''),pinned:Boolean(n.pinned),createdAt:n.createdAt||new Date().toISOString(),updatedAt:n.updatedAt||n.createdAt||new Date().toISOString()}));out.activeList=LISTS.includes(raw.activeList)?raw.activeList:'Inbox';out.filter=['all','next','scheduled','no-date'].includes(raw.filter)?raw.filter:'all';out.view=['tasks','notes'].includes(raw.view)?raw.view:'tasks';return out}
+function load(){try{Object.assign(app,normalize(JSON.parse(localStorage.getItem(KEY))))}catch(e){Object.assign(app,normalize(null))}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(app))}
+function toast(text){const el=$('toast');el.textContent=text;el.classList.add('show');clearTimeout(saveTimer);saveTimer=setTimeout(()=>el.classList.remove('show'),1500)}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function fmtDate(d){if(!d)return'';const date=new Date(d+'T00:00:00');return date.toLocaleDateString(undefined,{day:'numeric',month:'short',year:date.getFullYear()===new Date().getFullYear()?undefined:'numeric'})}
+function fmtTime(t){if(!t)return'';const [h,m]=t.split(':').map(Number);return new Date(2000,0,1,h,m).toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}
+function noteById(noteId){return app.notes.find(n=>n.id===noteId)||null}
+function extractLinks(body){const found=[],seen=new Set();for(const m of String(body).matchAll(/\[\[([^\[\]\n]{1,160})\]\]/g)){const title=clean(m[1]);const key=title.toLowerCase();if(title&&!seen.has(key)){seen.add(key);found.push(title)}}return found}
+function linkedNote(title){return app.notes.find(n=>n.title.toLowerCase()===title.toLowerCase())||null}
+function backlinks(note){return app.notes.filter(n=>n.id!==note.id&&extractLinks(n.body).some(t=>t.toLowerCase()===note.title.toLowerCase()))}
+function query(){return clean($('searchInput').value).toLowerCase()}
+function taskSort(a,b){if(a.done!==b.done)return a.done?1:-1;const as=Boolean(a.date&&a.time),bs=Boolean(b.date&&b.time);if(as!==bs)return as?-1:1;if(as&&bs){const c=(a.date+'T'+a.time).localeCompare(b.date+'T'+b.time);if(c)return c}return new Date(b.createdAt)-new Date(a.createdAt)}
+function filteredTasks(){const q=query();return app.tasks.filter(t=>t.list===app.activeList).filter(t=>app.filter==='next'?Boolean(t.nextAction):app.filter==='scheduled'?Boolean(t.date):app.filter==='no-date'?!t.date:true).filter(t=>!q||[t.title,t.nextAction,noteById(t.noteId)?.title].join(' ').toLowerCase().includes(q)).sort(taskSort)}
+function renderLists(){$('taskLists').innerHTML=LISTS.map(name=>`<button class="chip ${name===app.activeList?'active':''}" data-list="${escapeHtml(name)}">${escapeHtml(name)}</button>`).join('')}
+function renderTasks(){renderLists();document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b.dataset.filter===app.filter)});const list=$('taskList'),tasks=filteredTasks();list.innerHTML='';if(!tasks.length){list.innerHTML='<div class="empty">No matching tasks</div>';return}tasks.forEach(t=>{const card=document.createElement('article');card.className='task-card'+(t.done?' done':'')+(t.highlighted?' highlighted':'');const note=noteById(t.noteId);const meta=[t.date?fmtDate(t.date):'',t.time?fmtTime(t.time):'',note?'▤ '+note.title:''].filter(Boolean).join(' · ');card.innerHTML=`<button class="task-status" title="${t.done?'Mark not completed':'Mark completed'}" aria-label="${t.done?'Mark not completed':'Mark completed'}">${t.done?'✓':'○'}</button><button class="task-highlight" title="${t.highlighted?'Remove highlight':'Highlight task'}" aria-label="${t.highlighted?'Remove highlight':'Highlight task'}">${t.highlighted?'★':'☆'}</button><div class="task-main"><div class="task-title">${escapeHtml(t.title)}</div>${t.nextAction?`<div class="task-next">↳ ${escapeHtml(t.nextAction)}</div>`:''}${meta?`<div class="task-meta">${escapeHtml(meta)}</div>`:''}</div><div class="task-actions"><button class="icon-btn secondary-action edit" title="Edit task">✎</button><button class="icon-btn secondary-action danger del" title="Delete task">×</button><button class="icon-btn mobile-edit edit" title="Edit task">›</button></div>`;card.querySelector('.task-status').onclick=()=>{t.done=!t.done;persist();renderTasks()};card.querySelector('.task-highlight').onclick=()=>{t.highlighted=!t.highlighted;persist();renderTasks()};card.querySelectorAll('.edit').forEach(b=>b.onclick=()=>openTask(t.id));card.querySelector('.del').onclick=()=>removeTask(t.id);card.querySelector('.task-main').onclick=()=>openTask(t.id);list.appendChild(card)})}
+function filteredNotes(){const q=query();return app.notes.filter(n=>!q||[n.title,n.body].join(' ').toLowerCase().includes(q)).sort((a,b)=>Number(b.pinned)-Number(a.pinned)||new Date(b.updatedAt)-new Date(a.updatedAt))}
+function renderNotes(){const list=$('notesList'),notes=filteredNotes();list.innerHTML='';if(!notes.length){list.innerHTML='<div class="empty">No matching notes</div>';return}notes.forEach(n=>{const row=document.createElement('article');const links=extractLinks(n.body).length,backs=backlinks(n).length;row.className='note-row'+(n.pinned?' pinned':'');row.tabIndex=0;row.innerHTML=`<button class="icon-btn pin" title="${n.pinned?'Unpin note':'Pin note'}">${n.pinned?'★':'☆'}</button><div><div class="note-name">${escapeHtml(n.title)}</div><div class="note-preview">${escapeHtml(clean(n.body).replace(/\s+/g,' ')||'Empty note')}</div></div><div class="note-links">${links+backs?`${links} link${links===1?'':'s'} · ${backs} back`:''}</div>`;row.querySelector('.pin').onclick=e=>{e.stopPropagation();n.pinned=!n.pinned;n.updatedAt=new Date().toISOString();persist();renderNotes()};row.onclick=e=>{if(!e.target.closest('button'))openNote(n.id)};row.onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&e.target===row){e.preventDefault();openNote(n.id)}};list.appendChild(row)})}
+function render(){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.view===app.view));$('tasksView').hidden=app.view!=='tasks';$('notesView').hidden=app.view!=='notes';if(app.view==='tasks')renderTasks();else renderNotes()}
+function openModal(id){$(id).classList.add('open');$(id).setAttribute('aria-hidden','false')}
+function closeModal(id){$(id).classList.remove('open');$(id).setAttribute('aria-hidden','true')}
+function fillNoteSelect(value=''){$('taskNoteSelect').innerHTML='<option value="">None</option>'+app.notes.slice().sort((a,b)=>a.title.localeCompare(b.title)).map(n=>`<option value="${escapeHtml(n.id)}">${escapeHtml(n.title)}</option>`).join('');$('taskNoteSelect').value=value&&noteById(value)?value:''}
+function openTask(taskId=null){editingTaskId=taskId;const t=taskId?app.tasks.find(x=>x.id===taskId):null;$('taskDialogTitle').textContent=t?'Edit Task':'New Task';$('taskTitle').value=t?.title||'';$('taskNext').value=t?.nextAction||'';$('taskListSelect').innerHTML=LISTS.map(x=>`<option>${escapeHtml(x)}</option>`).join('');$('taskListSelect').value=t?.list||app.activeList;$('taskDate').value=t?.date||'';$('taskTime').value=t?.time||'';$('taskHighlight').checked=Boolean(t?.highlighted);fillNoteSelect(t?.noteId||'');$('deleteTaskBtn').hidden=!t;openModal('taskModal');setTimeout(()=>$('taskTitle').focus(),0)}
+function saveTask(){const title=clean($('taskTitle').value);if(!title){$('taskTitle').focus();return}const time=$('taskTime').value,date=$('taskDate').value;if(time&&!date){alert('Select a date before adding a time.');return}let t=editingTaskId?app.tasks.find(x=>x.id===editingTaskId):null;if(!t){t={id:id('task'),done:false,createdAt:new Date().toISOString()};app.tasks.push(t)}Object.assign(t,{title,nextAction:clean($('taskNext').value),list:$('taskListSelect').value,date,time,highlighted:$('taskHighlight').checked,noteId:$('taskNoteSelect').value});app.activeList=t.list;persist();closeModal('taskModal');render();toast('Task saved')}
+function removeTask(taskId){const t=app.tasks.find(x=>x.id===taskId);if(!t||!confirm('Delete this task?'))return;app.tasks=app.tasks.filter(x=>x.id!==taskId);persist();closeModal('taskModal');render();toast('Task deleted')}
+function openNote(noteId=null){editingNoteId=noteId;const n=noteId?noteById(noteId):null;$('noteDialogTitle').textContent=n?'Edit Note':'New Note';$('noteTitle').value=n?.title||'';$('noteBody').value=n?.body||'';$('notePinned').checked=Boolean(n?.pinned);$('deleteNoteBtn').hidden=!n;renderRelated(n);openModal('noteModal');setTimeout(()=>$('noteTitle').focus(),0)}
+function renderRelated(note){const area=$('relatedArea'),list=$('relatedList');list.innerHTML='';if(!note){area.hidden=true;return}const rows=[];extractLinks($('noteBody').value).forEach(title=>rows.push({kind:'Link',title,target:linkedNote(title)}));backlinks(note).forEach(n=>rows.push({kind:'Backlink',title:n.title,target:n}));area.hidden=!rows.length;rows.forEach(r=>{const div=document.createElement('div');div.className='related-item';div.innerHTML=`<span>${escapeHtml(r.kind)}: ${escapeHtml(r.title)}${r.target?'':' (not found)'}</span>`;if(r.target){const b=document.createElement('button');b.className='plain-btn related-open';b.textContent='Open';b.onclick=()=>{saveNote(false);openNote(r.target.id)};div.appendChild(b)}list.appendChild(div)})}
+function saveNote(close=true){const title=clean($('noteTitle').value);if(!title){$('noteTitle').focus();return false}const duplicate=app.notes.find(n=>n.id!==editingNoteId&&n.title.toLowerCase()===title.toLowerCase());if(duplicate&&!confirm('Another note has the same title. Wiki links may open the first match. Save anyway?'))return false;let n=editingNoteId?noteById(editingNoteId):null;if(!n){n={id:id('note'),createdAt:new Date().toISOString()};app.notes.push(n);editingNoteId=n.id}Object.assign(n,{title,body:$('noteBody').value,pinned:$('notePinned').checked,updatedAt:new Date().toISOString()});persist();if(close){closeModal('noteModal');render();toast('Note saved')}return true}
+function removeNote(noteId){const n=noteById(noteId);if(!n||!confirm('Delete this note? Task links to it will be removed.'))return;app.tasks.forEach(t=>{if(t.noteId===noteId)t.noteId=''});app.notes=app.notes.filter(x=>x.id!==noteId);persist();closeModal('noteModal');render();toast('Note deleted')}
+function exportData(){const data={app:'Work Tasks',version:1,exportedAt:new Date().toISOString(),data:app};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='work-tasks-backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
+function importData(file){const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(String(reader.result||''));if(parsed?.app!=='Work Tasks'||!parsed.data)throw new Error('Invalid backup');if(!confirm('Replace current Tasks and Notes with this backup?'))return;Object.assign(app,normalize(parsed.data));persist();$('searchInput').value='';render();toast('Backup imported')}catch(e){alert('This is not a valid Work Tasks backup.')}};reader.onerror=()=>alert('Could not read the backup file.');reader.readAsText(file)}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{app.view=b.dataset.view;persist();render()});$('taskLists').onclick=e=>{const b=e.target.closest('[data-list]');if(b){app.activeList=b.dataset.list;persist();renderTasks()}};$('taskFilters').onclick=e=>{const b=e.target.closest('[data-filter]');if(b){app.filter=b.dataset.filter;persist();renderTasks()}};$('addTaskBtn').onclick=()=>openTask();$('addNoteBtn').onclick=()=>openNote();$('saveTaskBtn').onclick=saveTask;$('deleteTaskBtn').onclick=()=>removeTask(editingTaskId);$('saveNoteBtn').onclick=()=>saveNote(true);$('deleteNoteBtn').onclick=()=>removeNote(editingNoteId);$('noteBody').addEventListener('input',()=>{const n=editingNoteId?noteById(editingNoteId):null;renderRelated(n)});$('searchInput').addEventListener('input',render);$('exportBtn').onclick=exportData;$('importBtn').onclick=()=>{$('importFile').value='';$('importFile').click()};$('importFile').onchange=()=>{const f=$('importFile').files?.[0];if(f)importData(f)};$('helpBtn').onclick=()=>openModal('helpModal');document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>closeModal(b.dataset.close));document.querySelectorAll('.modal').forEach(m=>m.onclick=e=>{if(e.target===m)closeModal(m.id)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.open').forEach(m=>closeModal(m.id))}if(e.key==='Enter'&&e.ctrlKey){if($('taskModal').classList.contains('open'))saveTask();else if($('noteModal').classList.contains('open'))saveNote(true)}});
+load();render();
+})();
 </script>
-
 </body>
 </html>
