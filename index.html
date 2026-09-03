@@ -20,6 +20,8 @@
 /* Compact navigation and footer utilities */
 .footer{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:3px 10px}.footer-actions{display:flex;align-items:center;gap:1px}.footer .plain-btn{min-height:24px;padding:2px 5px;font-size:10.5px}@media(min-width:760px){.app-head{min-height:34px;padding:3px 10px;justify-content:center}.brand-nav{gap:0}.app-head .tab{min-height:26px;padding:2px 10px}.head-actions{display:none}}@media(max-width:759px){.footer{gap:2px 6px}.footer-actions{flex-wrap:wrap;justify-content:center}}
 .journal-capture{display:flex;align-items:center;gap:6px;padding:5px 10px;border-bottom:1px solid var(--line);background:var(--panel)}.journal-capture input{flex:1;min-width:0;min-height:30px;border:1px solid var(--line);border-radius:9px;padding:4px 8px;outline:0}.journal-capture input:focus{border-color:var(--entry-border);background:var(--entry)}.journal-capture .plain-btn,.journal-capture .primary-btn{min-height:30px;padding:3px 8px}@media(max-width:759px){.journal-capture{padding:5px 8px}.journal-capture input{font-size:16px}}
+/* Fixed app chrome: only the main content area scrolls */
+body{height:100vh;height:100dvh;overflow:hidden}.shell{height:calc(100vh - 24px);height:calc(100dvh - 24px);min-height:0}.app-head,.search-bar,.journal-capture,.footer{flex:0 0 auto}.main{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}@media(max-width:759px){body{height:100vh;height:100dvh;overflow:hidden}.shell{height:calc(100vh - 12px);height:calc(100dvh - 12px);min-height:0}}
 </style>
 </head>
 <body>
